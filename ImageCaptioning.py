@@ -104,6 +104,7 @@ def encode_caption(caption, encoding_type, length=max_caption_len):
 def process_images(image_name):
     img = cv2.imread("./coco/train2014/"+image_name)
     img = cv2.resize(img, (224,224))
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     return img
 
 input_img = tf.placeholder(tf.float32, [BATCH_SIZE, 224, 224, 3])
@@ -220,4 +221,4 @@ for i in range(SEQUENCE_LENGTH):
 
 print example[3]
 
-plt.imshow(cv2.cvtColor(example[0], cv2.COLOR_BGR2RGB))
+plt.imshow(example[0])
