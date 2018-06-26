@@ -170,7 +170,7 @@ sess = tf.Session()
 sess.run(tf.global_variables_initializer())
 
 NUM_EPOCHS = 300
-RESUME_EPOCH = 90
+RESUME_EPOCH = 0
 if RESUME_EPOCH != 0:
     saver.restore(sess, "./v1/model"+str(RESUME_EPOCH)+".ckpt")
 dataset_train = dataset[:int(0.99*len(dataset))]
